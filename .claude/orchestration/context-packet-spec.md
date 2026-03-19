@@ -1,8 +1,15 @@
 # ORCHESTRATION: CONTEXT PACKET SPEC
 
-필수 항목:
-- Source
-- Relevance
-- Key Facts
-- Constraints
-- Open Questions
+```md
+# CONTEXT PACKET
+## Source
+## Relevance
+## Key Facts
+## Constraints
+## Open Questions
+## Confidence (low/medium/high)
+```
+
+규칙:
+- 출처 없는 사실 금지
+- Constraints 누락 금지
