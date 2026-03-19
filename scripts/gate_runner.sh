@@ -26,6 +26,7 @@ run_structural_gate() {
     ".claude/gates/risk-gate.md"
     "scripts/harness.sh"
     "templates/context-packet.md"
+    "scripts/markdown_guard.py"
   )
 
   local missing=0
@@ -44,19 +45,17 @@ run_structural_gate() {
 run_syntax_gate() {
   echo "== syntax-gate =="
 
+  local sh_files=(scripts/*.sh)
+  if [[ ${#sh_files[@]} -gt 0 ]]; then
+    bash -n scripts/*.sh && pass "bash -n scripts/*.sh"
+  fi
+
+  python3 scripts/markdown_guard.py && pass "python3 scripts/markdown_guard.py"
+
   if command -v shellcheck >/dev/null 2>&1; then
     shellcheck scripts/*.sh && pass "shellcheck scripts/*.sh"
   else
-    warn "shellcheck not installed; skipped"
-  fi
-
-  # basic markdown hygiene
-  local md_files
-  md_files=$(find . -type f -name "*.md" | tr '\n' ' ')
-  if grep -n "[[:blank:]]$" $md_files >/dev/null 2>&1; then
-    fail "markdown trailing whitespace detected"
-  else
-    pass "no markdown trailing whitespace"
+    warn "shellcheck not installed; optional"
   fi
 }
 

@@ -8,3 +8,5 @@
 - 실행 지원 파일 추가: `scripts/harness.sh`, `templates/context-packet.md`, `docs/runbook.md`
 - 호환성 보강: `roles/escalation.md`, `skills/common/write-spec.md`, `skills/common/write-test.md`, `skills/infra/deploy-safety.md`, `reports/latest-report.md`
 - 게이트 자동화 추가: `scripts/gate_runner.sh`, `.github/workflows/gates.yml`
+- 품질 검사 강화: `scripts/markdown_guard.py`로 의존성 없는 Markdown 검증 추가
+- 진화 레이어 보강: `docs/skill-metadata-schema.md`, `docs/failure-tagging-rules.md`, `skills/_registry.yaml` 추가
