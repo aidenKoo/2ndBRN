@@ -1,0 +1,16 @@
+name: docs-gates
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  gate-runner:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ripgrep
+        run: sudo apt-get update && sudo apt-get install -y ripgrep
+      - name: Run gate runner
+        run: bash scripts/gate_runner.sh
