@@ -1,0 +1,3 @@
+# SKILL: FRONTEND IMPLEMENT UI
+
+- 접근성/상태/오류 UI 포함
