@@ -45,12 +45,17 @@ render_packet() {
   echo "[OK] reports/context-packet.latest.md created from template"
 }
 
+evolve_skills() {
+  python3 scripts/evolve_skills.py
+}
+
 case "$CMD" in
   check) check_docs ;;
   report) write_report ;;
   packet) render_packet ;;
+  evolve) evolve_skills ;;
   *)
-    echo "Usage: $0 {check|report|packet}"
+    echo "Usage: $0 {check|report|packet|evolve}"
     exit 2
     ;;
 esac

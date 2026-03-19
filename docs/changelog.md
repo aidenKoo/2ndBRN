@@ -10,3 +10,4 @@
 - 게이트 자동화 추가: `scripts/gate_runner.sh`, `.github/workflows/gates.yml`
 - 품질 검사 강화: `scripts/markdown_guard.py`로 의존성 없는 Markdown 검증 추가
 - 진화 레이어 보강: `docs/skill-metadata-schema.md`, `docs/failure-tagging-rules.md`, `skills/_registry.yaml` 추가
+- 이벤트 기반 스킬 진화 초안 추가: `logs/skill-events.jsonl`, `scripts/evolve_skills.py`, `harness evolve` 명령

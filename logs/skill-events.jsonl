@@ -1,0 +1,3 @@
+{"skill_id":"common/write-spec","ok":true,"failure_tag":null}
+{"skill_id":"common/write-test","ok":false,"failure_tag":"test-missing"}
+{"skill_id":"infra/deploy-safety","ok":true,"failure_tag":null}

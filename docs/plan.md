@@ -15,5 +15,5 @@
 - [x] 스킬 메타데이터 스키마 정의 (`docs/skill-metadata-schema.md`)
 - [x] 실패 태깅 규칙 정의 (`docs/failure-tagging-rules.md`)
 - [x] 스킬 레지스트리 초안 추가 (`skills/_registry.yaml`)
-- [ ] 자동 승급/강등 정책 적용 스크립트 구현
+- [x] 이벤트 기반 승급/강등 스크립트 초안 추가 (`scripts/evolve_skills.py`)
 - [ ] failure-patterns 기반 self-healing 루프 자동화
