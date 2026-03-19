@@ -1,0 +1,6 @@
+{
+  "lint": ["python3 scripts/markdown_guard.py"],
+  "type": ["python3 scripts/registry_typecheck.py"],
+  "test": ["bash scripts/harness.sh check"],
+  "security": ["python3 scripts/self_heal.py --scan-only"]
+}
