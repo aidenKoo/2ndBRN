@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
-"""Run project tool gates from config/tool-gates.json.
-
-This is a bridge for real repo commands (lint/type/test/security).
-If commands are empty, it reports WARN and continues.
-"""
+"""Run project tool gates from config + auto-detected project stack commands."""
 from __future__ import annotations
 
 import json
 import pathlib
+import shutil
 import subprocess
-import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CFG = ROOT / "config" / "tool-gates.json"
@@ -20,16 +16,55 @@ def run_cmd(cmd: str) -> int:
     return subprocess.call(cmd, cwd=ROOT, shell=True)
 
 
-def main() -> int:
-    if not CFG.exists():
-        print("[WARN] config/tool-gates.json missing")
-        return 0
+def load_cfg() -> dict[str, list[str]]:
+    base = {"lint": [], "type": [], "test": [], "security": []}
+    if CFG.exists():
+        data = json.loads(CFG.read_text(encoding="utf-8"))
+        for k in base:
+            base[k] = list(data.get(k, []))
+    return base
 
-    cfg = json.loads(CFG.read_text(encoding="utf-8"))
+
+def detect_auto_cmds() -> dict[str, list[str]]:
+    auto = {"lint": [], "type": [], "test": [], "security": []}
+
+    if (ROOT / "pyproject.toml").exists():
+        if shutil.which("ruff"):
+            auto["lint"].append("ruff check .")
+        if shutil.which("mypy"):
+            auto["type"].append("mypy .")
+        if shutil.which("pytest"):
+            auto["test"].append("pytest -q")
+
+    if (ROOT / "package.json").exists() and shutil.which("npm"):
+        auto["lint"].append("npm run -s lint --if-present")
+        auto["test"].append("npm run -s test --if-present")
+
+    # generic security check if rg exists
+    if shutil.which("rg"):
+        auto["security"].append("rg -n \"(SECRET|PASSWORD|API_KEY)=\" . || true")
+
+    return auto
+
+
+def dedup(items: list[str]) -> list[str]:
+    seen = set()
+    out = []
+    for i in items:
+        if i in seen:
+            continue
+        seen.add(i)
+        out.append(i)
+    return out
+
+
+def main() -> int:
+    cfg = load_cfg()
+    auto = detect_auto_cmds()
     fail = 0
 
     for gate in ["lint", "type", "test", "security"]:
-        cmds = cfg.get(gate, [])
+        cmds = dedup(cfg.get(gate, []) + auto.get(gate, []))
         if not cmds:
             print(f"[WARN] {gate} gate command list is empty")
             continue

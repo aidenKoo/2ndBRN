@@ -13,3 +13,4 @@
 - 이벤트 기반 스킬 진화 초안 추가: `logs/skill-events.jsonl`, `scripts/evolve_skills.py`, `harness evolve` 명령
 - 운영/진화 자동화 확장: `scripts/self_heal.py`, `scripts/project_tool_gates.py`, `config/tool-gates.json`, `harness heal/tools` 명령
 - 추가 자동화: `scripts/registry_typecheck.py`(type gate), `scripts/reinject_failures.py`(failure-patterns 자동 재주입)
+- 거버넌스 자동화 확장: `scripts/governance_autopilot.py`, `harness govern`, 승인/백업/감사 로그 루프 추가

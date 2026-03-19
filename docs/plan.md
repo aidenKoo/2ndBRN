@@ -11,7 +11,7 @@
 - [x] 내장 Markdown 품질 검사 추가 (`scripts/markdown_guard.py`)
 - [x] 프로젝트 도구 게이트 브릿지 추가 (`scripts/project_tool_gates.py`, `config/tool-gates.json`)
 - [x] type 게이트 기본 검증 추가 (`scripts/registry_typecheck.py`)
-- [ ] 각 프로젝트별 실제 도구 세부 커맨드 최적화
+- [x] 프로젝트 스택 자동 감지 기반 도구 커맨드 확장 (`scripts/project_tool_gates.py`)
 
 ## Phase 3 — Evolution (진행 중)
 - [x] 스킬 메타데이터 스키마 정의 (`docs/skill-metadata-schema.md`)
@@ -20,4 +20,5 @@
 - [x] 이벤트 기반 승급/강등 스크립트 초안 추가 (`scripts/evolve_skills.py`)
 - [x] self-heal 리포트 자동 생성 초안 추가 (`scripts/self_heal.py`)
 - [x] failure-patterns 자동 재주입 초안 추가 (`scripts/reinject_failures.py`)
-- [ ] 거버넌스 자동 전이 규칙의 완전 자동화(승인/롤백 정책 포함)
+- [x] 거버넌스 전이 제안/승인/백업/감사 자동화 초안 (`scripts/governance_autopilot.py`)
+- [ ] 도메인별 승인 정책(인간 승인자, SLA, 롤백 임계값) 세분화

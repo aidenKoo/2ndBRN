@@ -58,6 +58,10 @@ tool_gates() {
   python3 scripts/project_tool_gates.py
 }
 
+govern_loop() {
+  python3 scripts/governance_autopilot.py
+}
+
 case "$CMD" in
   check) check_docs ;;
   report) write_report ;;
@@ -65,8 +69,9 @@ case "$CMD" in
   evolve) evolve_skills ;;
   heal) heal_loop ;;
   tools) tool_gates ;;
+  govern) govern_loop ;;
   *)
-    echo "Usage: $0 {check|report|packet|evolve|heal|tools}"
+    echo "Usage: $0 {check|report|packet|evolve|heal|tools|govern}"
     exit 2
     ;;
 esac

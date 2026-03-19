@@ -4,19 +4,19 @@ skills:
   - id: common/write-spec
     status: verify
     confidence: 0.60
-    usage_count: 3
+    usage_count: 4
     success_rate: 1.00
     failure_tags: []
   - id: common/write-test
     status: verify
     confidence: 0.60
-    usage_count: 3
+    usage_count: 4
     success_rate: 0.00
     failure_tags:
       - test-missing
   - id: infra/deploy-safety
     status: verify
     confidence: 0.65
-    usage_count: 3
+    usage_count: 4
     success_rate: 1.00
     failure_tags: []
