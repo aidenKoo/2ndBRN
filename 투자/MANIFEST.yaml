@@ -1,4 +1,4 @@
-version: 1.0
+version: 1.1
 name: investment-harness
 purpose: >
   투자 분석 및 검증을 위한 모델 중립형 매뉴얼 하네스.
@@ -9,11 +9,18 @@ answer_style: concise_structured
 requires_counterargument: true
 requires_risk_controls: true
 requires_invalidation_conditions: true
+requires_theory_coverage: true
 
 core_files:
   - core/OPERATING_PRINCIPLES.md
   - core/RISK_POLICY.md
   - core/OUTPUT_POLICY.md
+
+theory_files:
+  - theories/INVESTMENT_THEORIES.md
+
+eval_files:
+  - evals/theory_checklist.md
 
 skills:
   - name: bull_analyst

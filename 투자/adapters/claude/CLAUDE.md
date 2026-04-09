@@ -4,9 +4,13 @@
 - ../../core/OPERATING_PRINCIPLES.md
 - ../../core/RISK_POLICY.md
 - ../../core/OUTPUT_POLICY.md
+- ../../theories/INVESTMENT_THEORIES.md
 
 기본 호출 스킬:
 - ../../skills/bull_analyst/SKILL.md
 - ../../skills/bear_analyst/SKILL.md
 - ../../skills/risk_manager/SKILL.md
 - ../../skills/verifier/SKILL.md
+
+최종 점검:
+- ../../evals/theory_checklist.md
