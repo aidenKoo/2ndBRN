@@ -13,5 +13,12 @@
 2. `core/` 정책 문서를 먼저 적용한다.
 3. `theories/INVESTMENT_THEORIES.md`를 로드한다.
 4. 요청 유형에 맞는 `playbooks/` 절차를 실행한다.
-5. 필요한 `skills/*/SKILL.md`를 호출한다.
-6. 최종 출력은 `skills/verifier/SKILL.md` 및 `evals/theory_checklist.md`로 검증한다.
+5. `schemas/input_schema.md`로 입력을 정규화한다.
+6. 필요한 `skills/*/SKILL.md`를 호출한다.
+7. `schemas/final_answer_schema.md` 형식으로 결과를 조립한다.
+8. 최종 출력은 `skills/verifier/SKILL.md` 및 `evals/theory_checklist.md`로 검증한다.
+
+## 확장 포인트
+- 플레이북: `earnings_reaction`, `macro_event_response`, `portfolio_rebalance`
+- 평가셋: `evals/test_cases/*`
+- 사후평가: `templates/postmortem_template.md`
