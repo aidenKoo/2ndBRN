@@ -1,0 +1,30 @@
+version: 1.0
+name: investment-harness
+purpose: >
+  투자 분석 및 검증을 위한 모델 중립형 매뉴얼 하네스.
+  예측 자체보다 근거, 반대 논리, 리스크 통제를 우선한다.
+
+default_language: ko
+answer_style: concise_structured
+requires_counterargument: true
+requires_risk_controls: true
+requires_invalidation_conditions: true
+
+core_files:
+  - core/OPERATING_PRINCIPLES.md
+  - core/RISK_POLICY.md
+  - core/OUTPUT_POLICY.md
+
+skills:
+  - name: bull_analyst
+    path: skills/bull_analyst/SKILL.md
+  - name: bear_analyst
+    path: skills/bear_analyst/SKILL.md
+  - name: risk_manager
+    path: skills/risk_manager/SKILL.md
+  - name: verifier
+    path: skills/verifier/SKILL.md
+
+playbooks:
+  - name: single_stock_analysis
+    path: playbooks/single_stock_analysis.md
