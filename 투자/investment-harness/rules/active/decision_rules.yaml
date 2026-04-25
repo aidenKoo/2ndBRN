@@ -1,0 +1,50 @@
+decision_rules:
+  buy_candidate:
+    required:
+      - investment_thesis_exists
+      - signal_score_above_threshold
+      - valuation_not_extreme
+      - risk_check_passed
+      - opposite_case_written
+  virtual_buy:
+    required:
+      - buy_candidate_passed
+      - portfolio_weight_available
+      - scenario_loss_within_limit
+      - trade_journal_written
+  hold:
+    required:
+      - thesis_not_broken
+      - risk_limit_not_exceeded
+      - no_superior_replacement
+  trim:
+    triggers:
+      - position_weight_exceeds_limit
+      - valuation_score_deteriorates
+      - scenario_risk_increases
+      - thesis_confidence_declines
+  virtual_sell:
+    triggers:
+      - thesis_broken
+      - risk_limit_breached
+      - better_opportunity_confirmed
+      - rule_violation_detected
+  opposite_case_required:
+    enabled: true
+    minimum_count: 3
+    required_before:
+      - virtual_buy
+      - position_size_increase
+      - thesis_upgrade
+  confidence_score:
+    fields:
+      - thesis_confidence
+      - data_confidence
+      - valuation_confidence
+      - timing_confidence
+      - risk_confidence
+    position_size_mapping:
+      total_score_20_25: max_position_allowed
+      total_score_15_19: normal_position
+      total_score_10_14: half_position
+      total_score_below_10: watch_only
