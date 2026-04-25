@@ -1,0 +1,28 @@
+scenarios:
+  rate_up:
+    description: 금리 상승 충격
+    shock:
+      ten_year_yield_change: 1.00
+      growth_multiple_change: -0.20
+      value_multiple_change: -0.05
+  rate_down:
+    description: 금리 하락 환경
+    shock:
+      ten_year_yield_change: -1.00
+      growth_multiple_change: 0.20
+      value_multiple_change: 0.05
+  recession:
+    description: 경기침체
+    shock:
+      revenue_growth_change: -0.30
+      margin_change: -0.20
+      valuation_multiple_change: -0.25
+  inflation_reacceleration:
+    description: 인플레이션 재가속
+    shock:
+      margin_change: -0.10
+      valuation_multiple_change: -0.15
+pass_rules:
+  max_loss_under_single_scenario: -0.20
+  max_loss_under_any_two_scenarios: -0.30
+  minimum_survival_score: 65
