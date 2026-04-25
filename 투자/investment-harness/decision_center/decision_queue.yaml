@@ -1,0 +1,13 @@
+pending_decisions:
+  - decision_id: DQ-0001
+    gate: G0_strategy_idea_intake
+    title: Quality Growth 전략 초안 작성 여부
+    requested_by: hypothesis_designer
+    priority: high
+    status: pending_user_decision
+    options:
+      A: approve_for_draft
+      B: archive_only
+      C: reject
+    default_recommendation: A
+    created_at: 2026-04-25
