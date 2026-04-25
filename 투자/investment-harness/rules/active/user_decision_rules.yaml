@@ -1,0 +1,49 @@
+user_decision_rules:
+  user_role: investment_harness_owner
+  principle:
+    - user_is_decision_maker_not_worker
+    - agents_should_prepare_options_before_asking
+    - never_ask_open_ended_question_without_recommendation
+    - every_question_must_have_default_recommendation
+    - every_question_must_have_clear_options
+  allowed_question_types:
+    - approve_or_reject
+    - choose_between_options
+    - risk_preference_choice
+    - priority_choice
+    - override_confirmation
+    - strategy_retirement_confirmation
+  prohibited_question_types:
+    - what_should_i_do_next
+    - please_define_the_rule_from_scratch
+    - please_analyze_this_yourself
+    - open_ended_without_context
+    - repeated_question_already_answered
+  max_user_questions_per_decision: 1
+  decision_without_user_approval:
+    allowed_for:
+      - draft_creation
+      - archive_summary
+      - signal_candidate_generation
+      - bear_case_generation
+      - progress_update
+      - report_draft
+    forbidden_for:
+      - active_rule_change
+      - virtual_buy
+      - virtual_sell
+      - strategy_promotion
+      - strategy_retirement
+      - real_money_action
+      - override_execution
+  short_response_mapping:
+    A: choose_option_A
+    B: choose_option_B
+    C: choose_option_C
+    D: choose_option_D
+    승인: approve_recommendation
+    보류: hold_decision
+    반려: reject
+    더 보수적으로: reduce_risk
+    더 공격적으로: increase_risk
+    근거 추가: provide_more_evidence
