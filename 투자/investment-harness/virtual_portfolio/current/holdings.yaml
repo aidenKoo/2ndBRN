@@ -1,0 +1,8 @@
+portfolio_id: initial_virtual_portfolio
+base_currency: KRW
+initial_capital: 10000000
+start_date: 2026-04-25
+cash:
+  amount: 10000000
+  ratio: 1.00
+holdings: []
