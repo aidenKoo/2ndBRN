@@ -1,0 +1,54 @@
+version: 1.2
+name: investment-harness
+purpose: >
+  투자 분석 및 검증을 위한 모델 중립형 매뉴얼 하네스.
+  예측 자체보다 근거, 반대 논리, 리스크 통제를 우선한다.
+
+default_language: ko
+answer_style: concise_structured
+requires_counterargument: true
+requires_risk_controls: true
+requires_invalidation_conditions: true
+requires_theory_coverage: true
+requires_postmortem_logging: true
+
+core_files:
+  - core/OPERATING_PRINCIPLES.md
+  - core/RISK_POLICY.md
+  - core/OUTPUT_POLICY.md
+
+theory_files:
+  - theories/INVESTMENT_THEORIES.md
+
+schema_files:
+  - schemas/input_schema.md
+  - schemas/final_answer_schema.md
+
+eval_files:
+  - evals/theory_checklist.md
+  - evals/test_cases/conflicting_signal_case_01.md
+  - evals/test_cases/insufficient_data_case_01.md
+  - evals/test_cases/macro_shock_case_01.md
+
+template_files:
+  - templates/postmortem_template.md
+
+skills:
+  - name: bull_analyst
+    path: skills/bull_analyst/SKILL.md
+  - name: bear_analyst
+    path: skills/bear_analyst/SKILL.md
+  - name: risk_manager
+    path: skills/risk_manager/SKILL.md
+  - name: verifier
+    path: skills/verifier/SKILL.md
+
+playbooks:
+  - name: single_stock_analysis
+    path: playbooks/single_stock_analysis.md
+  - name: earnings_reaction
+    path: playbooks/earnings_reaction.md
+  - name: macro_event_response
+    path: playbooks/macro_event_response.md
+  - name: portfolio_rebalance
+    path: playbooks/portfolio_rebalance.md
