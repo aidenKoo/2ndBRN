@@ -1,0 +1,20 @@
+allocation_rules:
+  default_position_weighting: score_weighted
+  constraints:
+    max_single_asset_weight: 0.10
+    max_sector_weight: 0.35
+    max_theme_weight: 0.45
+    max_portfolio_beta: 1.20
+    max_interest_rate_sensitivity: 1.30
+capital_allocation:
+  allow_cash: true
+  defensive_cash_trigger:
+    condition: scenario_failure_count >= 2
+    cash_ratio: 0.30
+rebalancing:
+  frequency: monthly
+  turnover_limit: 0.35
+benchmark:
+  primary: SPY
+  secondary: [QQQ, sector_etf]
+  compare_metrics: [total_return, max_drawdown, volatility, sharpe_ratio, hit_rate]

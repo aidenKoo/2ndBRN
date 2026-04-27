@@ -1,0 +1,62 @@
+agents:
+  hypothesis_designer:
+    model_preference: GPT
+    responsibility: [투자 가설 생성, 전략 초안 작성, thesis 작성]
+    output: [thesis_draft.md, strategy_draft.yaml]
+    may_ask_user: true
+    ask_user_only_at_gate: true
+  knowledge_curator:
+    model_preference: Claude
+    responsibility: [도서·이론·논문·사례 아카이빙, 원칙 추출, 룰 후보 생성]
+    output: [archive_summary.md, rule_candidate.md]
+    may_ask_user: false
+  signal_engineer:
+    model_preference: GPT
+    responsibility: [가설의 정량 신호 변환, factor 후보 작성, 데이터 필요 항목 정의]
+    output: [signal_spec.md, factor_definition.yaml]
+    may_ask_user: true
+    ask_user_only_at_gate: true
+  backtest_engineer:
+    model_preference: GPT
+    responsibility: [백테스트 설계, 편향 체크, 성과지표 정의]
+    output: [backtest_plan.md, bias_checklist.md]
+    may_ask_user: false
+  portfolio_manager:
+    model_preference: GPT
+    responsibility: [비중 설계, 현금 비중 관리, 섹터·테마·베타 노출 관리]
+    output: [allocation_plan.md, exposure_report.md]
+    may_ask_user: true
+    ask_user_only_at_gate: true
+  scenario_simulator:
+    model_preference: GPT
+    responsibility: [금리·침체·인플레·유동성 시나리오 설계, 충격 테스트]
+    output: [scenario_report.md]
+    may_ask_user: false
+  risk_manager:
+    model_preference: GPT
+    responsibility: [승인·보류·반려 판단, 룰 위반 탐지, 포지션 위험 평가]
+    output: [risk_review.md, approval_checklist.md]
+    may_ask_user: true
+    ask_user_only_at_gate: true
+  devils_advocate:
+    model_preference: Claude
+    responsibility: [반대 논리 작성, 실패 가능성 탐색, pre-mortem 작성]
+    output: [bear_case_report.md, contradiction_log.md]
+    may_ask_user: false
+  paper_trading_operator:
+    model_preference: GPT
+    responsibility: [가상투자 기록, 포트폴리오 현황 업데이트, 매매 일지 초안 작성]
+    output: [trade_journal.md, portfolio_status.md, decision_log.md]
+    may_ask_user: true
+    ask_user_only_at_gate: true
+  meta_analyst:
+    model_preference: Claude
+    responsibility: [반복 실패 패턴 분석, 룰 개선 후보 도출, 전략 유지·폐기 제안]
+    output: [meta_review.md, rule_change_recommendation.md]
+    may_ask_user: true
+    ask_user_only_at_gate: true
+  codex_implementation_agent:
+    model_preference: Codex
+    responsibility: [파일 생성, 코드 구현, 테스트 작성, 리팩터링]
+    output: [source_code, tests, changelog]
+    may_ask_user: false

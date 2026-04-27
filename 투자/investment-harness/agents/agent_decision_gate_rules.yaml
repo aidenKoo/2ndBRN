@@ -1,0 +1,32 @@
+decision_gates:
+  G0_strategy_idea_intake:
+    description: 새 전략 아이디어를 실험할지 여부
+    options: [approve_for_draft, reject, archive_only]
+  G1_strategy_draft_review:
+    description: 전략 초안을 신호 설계 단계로 넘길지 여부
+    options: [approve_for_signal_design, revise, reject, archive]
+  G2_signal_spec_review:
+    description: 신호 정의 확정 및 백테스트 이동 여부
+    options: [approve_for_backtest, revise_signals, reduce_complexity, reject]
+  G3_backtest_result_review:
+    description: 백테스트 결과를 시나리오 테스트로 넘길지 여부
+    options: [approve_for_scenario_test, revise_strategy, reject, archive]
+  G4_scenario_risk_review:
+    description: 시나리오 테스트 후 가상투자 진입 여부
+    options: [approve_for_paper_trading, approve_with_smaller_size, revise_risk_rules, reject]
+  G5_virtual_buy_review:
+    description: 특정 종목 또는 전략을 가상 포트폴리오에 편입할지 여부
+    options: [virtual_buy, watch_only, reject, request_more_bear_case]
+  G6_weekly_review:
+    description: 가상 포트폴리오 유지·조정 여부
+    options: [maintain, rebalance, trim, pause, request_deeper_review]
+  G7_rule_change_review:
+    description: 룰 변경안을 active rule로 반영할지 여부
+    options: [approve_rule_change, test_more, reject, archive_as_reference]
+  G8_strategy_retirement_review:
+    description: 전략 폐기 여부
+    options: [retire, keep_running, pause, revise_and_retry]
+  G9_real_money_promotion_review:
+    description: 실제 투자 전환 후보 심사
+    current_policy: real_money_disabled
+    options: [keep_virtual_only, approve_candidate_only, reject_real_money_transition]

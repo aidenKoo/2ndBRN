@@ -1,0 +1,32 @@
+paper_trading:
+  mode: virtual_only
+  real_money_allowed: false
+  initial_capital:
+    amount: 10000000
+    currency: KRW
+  execution_policy:
+    price_source: manual_or_close_price
+    execution_timing: next_market_close
+    slippage_assumption: 0.001
+    fee_assumption: 0.001
+  required_records:
+    - trade_journal
+    - decision_log
+    - holdings
+    - cash_ledger
+    - portfolio_status
+  minimum_observation_period:
+    strategy_level: 3_months
+    portfolio_level: 6_months
+  promotion_to_real_trading:
+    allowed: false
+    required_conditions:
+      - minimum_3_months_virtual_record
+      - max_drawdown_within_limit
+      - scenario_test_passed
+      - rule_violation_count_zero
+      - meta_review_completed
+  stop_conditions:
+    max_virtual_drawdown: -0.20
+    rule_violation_count: 3
+    missing_record_count: 2

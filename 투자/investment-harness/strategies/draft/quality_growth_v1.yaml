@@ -1,0 +1,41 @@
+strategy_id: quality_growth_v1
+status: draft
+description: 성장성과 수익성이 함께 개선되는 기업 선별 전략
+universe:
+  market: US
+  min_market_cap: 10000000000
+  exclude_sectors: []
+rebalance:
+  frequency: monthly
+signals:
+  growth:
+    revenue_growth_yoy:
+      weight: 0.30
+      direction: higher_is_better
+  profitability:
+    gross_margin:
+      weight: 0.20
+      direction: higher_is_better
+    operating_margin:
+      weight: 0.20
+      direction: higher_is_better
+  valuation:
+    psr:
+      weight: 0.20
+      direction: lower_is_better
+  risk:
+    beta:
+      weight: 0.10
+      direction: lower_is_better
+portfolio_rules:
+  max_positions: 20
+  min_positions: 8
+  max_weight_per_stock: 0.10
+  cash_allowed: true
+risk_rules:
+  max_portfolio_beta: 1.20
+  max_single_sector_weight: 0.35
+approval_rules:
+  require_backtest: true
+  require_scenario_test: true
+  require_risk_check: true
